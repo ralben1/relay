@@ -25,3 +25,7 @@ class Light():
     def light2off(self):
         return "Light 2 off"
         GPIO.output(relay2, GPIO.HIGH)
+
+    def stop(self):
+        GPIO.cleanup()
+        return True
