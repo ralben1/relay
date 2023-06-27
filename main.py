@@ -8,28 +8,27 @@ app = FastAPI()
 light = Light()
 ip = IP().get_ip()
 mainurl = "http://iphonevonabdullah.local:8000/app"
+port = 3000
 
-
-@app.get("/light-1-on", response_class=RedirectResponse)
+@app.get("/light-1-on")
 def light1on():
     print(light.light1on())
-    return RedirectResponse(mainurl)
+    return  200
 
-@app.get("/light-1-off", response_class=RedirectResponse)
+@app.get("/light-1-off")
 def light1off():
     print(light.light1off())
-    return RedirectResponse(mainurl)
+    return 200
 
-@app.get("/light-2-on", response_class=RedirectResponse)
+@app.get("/light-2-on")
 def light2on():
     print(light.light2on())
-    return RedirectResponse(mainurl)
+    return 200
 
-@app.get("/light-2-off", response_class=RedirectResponse)
+@app.get("/light-2-off")
 def light2off():
     print(light.light2off())
-    return RedirectResponse(mainurl)
-
+    return 200
 @app.get("/ip")
 def returnip():
     return ip
@@ -85,4 +84,4 @@ async def serve_app():
 </body>
 </html>
 
-    """ % (f"http://{ip}:8000/light-1-on", f"http://{ip}:8000/light-1-off", f"http://{ip}:8000/light-2-on", f"http://{ip}:8000/light-2-off")
+    """ % (f"http://{ip}:3000/light-1-on", f"http://{ip}:3000/light-1-off", f"http://{ip}:3000/light-2-on", f"http://{ip}:3000/light-2-off")
